@@ -6,7 +6,9 @@
     <%= f.input :last_name %>
     <%= f.input :email %>
     <%= f.association :manager, :label_method => lambda { |manager| "#{manager.first_name} #{manager.last_name}" } %>
-    <%= f.association :manager, as: current_user %>
+    <%= f.association :manager, value:current_user %>
+    <%= f.hidden_field :manager, value:current_user, :label_method => lambda { |manager| "#{manager.first_name} #{manager.last_name}" }%>
+
   </div>
 
   <div class="form-actions">

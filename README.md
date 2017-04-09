@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+TODO:
+-
+
+<%= f.association :manager, :label_method => lambda { |manager| "#{manager.first_name} #{manager.last_name}" } %>
+    <%= f.association :manager, value:current_user %>
+
+New Employees form, pass current user (manager) as reference
