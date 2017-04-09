@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :new, :create ]
+  before_action :set_user, only: [:edit, :update, :destroy, :new, :create ]
 
   # GET /employees
   # GET /employees.json
@@ -64,7 +64,10 @@ class EmployeesController < ApplicationController
     end
 
     def set_user
+      # Doesn't work with employee_path show
       @user = User.find(params[:user_id])
+
+      # @user = User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

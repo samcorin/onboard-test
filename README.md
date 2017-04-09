@@ -25,6 +25,3 @@ Things you may want to cover:
 
 
 TODO:
-- New Employees form, pass current user (manager) as reference:
-  <%= f.association :manager, :label_method => lambda { |manager| "#{manager.first_name} #{manager.last_name}" } %>
-      <%= f.association :manager, value:current_user %>
