@@ -9,8 +9,10 @@
   </head>
 
   <body>
-  <%= current_user.email %> <br>
-  id: <%= current_user.id %> <br>
+  <% if current_user %>
+    <%= current_user.email %> <br>
+    id: <%= current_user.id %> <br>
+  <% end %>
 
 
     <div class="ui container">

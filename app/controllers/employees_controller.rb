@@ -16,7 +16,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
-    @user = current_user
+    # @user = current_user
   end
 
   # GET /employees/1/edit
@@ -27,10 +27,10 @@ class EmployeesController < ApplicationController
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
-    @employee.user_id = current_user.id
+    @employee.user = @user
 
     if @employee.save
-      redirect_to users_employees_path
+      redirect_to user_employees_path
     else
       render :new
     end
@@ -50,14 +50,11 @@ class EmployeesController < ApplicationController
     end
   end
 
-  # DELETE /employees/1
-  # DELETE /employees/1.json
   def destroy
+    @user = @employee.user
+
     @employee.destroy
-    respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_employees_path
   end
 
   private
@@ -67,11 +64,11 @@ class EmployeesController < ApplicationController
     end
 
     def set_user
-      @user = current_user
+      @user = User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :email, :user_id)
+      params.require(:employee).permit(:first_name, :last_name, :email, :user)
     end
 end
