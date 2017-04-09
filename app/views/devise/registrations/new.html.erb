@@ -1,0 +1,26 @@
+<div class="ui container">
+  <h2>Sign up</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <form class="ui form">
+      <div class="field">
+        <%= f.input :email, required: true, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" tabindex="0" class="hidden">
+          <label>I agree to the Terms and Conditions</label>
+        </div>
+      </div>
+      <%= f.button :submit, "Sign up" %>
+    </form>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
