@@ -4,5 +4,5 @@ class User < ApplicationRecord
   extend Devise::Models
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :employees
+  has_many :employees, dependent: :destroy
 end

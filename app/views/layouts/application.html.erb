@@ -9,14 +9,12 @@
   </head>
 
   <body>
-  <% if current_user %>
-    <%= current_user.email %> <br>
-    id: <%= current_user.id %> <br>
-  <% end %>
-
+    <% if current_user %>
+      Logged in user: <%= current_user.email %> <br>
+      id: <%= current_user.id %> <br>
+    <% end %>
 
     <div class="ui container">
-
       <% if user_signed_in? %>
         <div class="ui secondary menu">
             <%= link_to 'Home', users_path, :class => 'ui item  active' %>
@@ -26,29 +24,26 @@
             <div class="item">
             <%= current_user.email %>
             </div>
-            <!--
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'ui item' %>
 
-             -->
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'ui item'  %>
           </div>
         </div>
+
         <% else %>
-          <div class="ui secondary menu">
-            <div class="right menu">
-              <div class="ui item">
 
-              </div>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'ui item'  %>
-                <%= link_to "Login", new_user_session_path, :class => 'ui item'  %>
+        <div class="ui secondary menu">
+          <div class="right menu">
+            <div class="ui item">
+
             </div>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'ui item'  %>
+              <%= link_to "Login", new_user_session_path, :class => 'ui item'  %>
           </div>
-
+        </div>
         <% end %>
 
       <%= yield %>
 
     </div>
-
   </body>
 </html>
