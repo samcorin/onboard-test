@@ -9,12 +9,13 @@
   </head>
 
   <body>
-    <% if current_user %>
-      Logged in user: <%= current_user.email %> <br>
-      id: <%= current_user.id %> <br>
-    <% end %>
 
     <div class="ui container">
+    <% if current_user %>
+      <strong>Logged in user:</strong><br>
+      <%= current_user.email %> -
+      ID: <%= current_user.id %> - employees: <%= current_user.employees.count %>
+    <% end %>
       <% if user_signed_in? %>
         <div class="ui secondary menu">
             <%= link_to 'Home', users_path, :class => 'ui item  active' %>

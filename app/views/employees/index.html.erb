@@ -13,15 +13,18 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.first_name %> <%= employee.last_name %></td>
-        <td><%= employee.email %></td>
+          <td>
+            <%= link_to employee_path(employee) do %>
+              <%= employee.first_name %> <%= employee.last_name %>
+            <% end %>
+          </td>
+          <td><%= employee.email %></td>
         <td class="center aligned">
           <i class="large green checkmark icon"></i>
         </td>
         <!-- <td><%= employee.user %></td> -->
-        <td><%= link_to 'Show', employee_path(employee) %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Show', employee_path(employee) %></td> -->
+        <!-- <td><%= link_to 'Edit', edit_employee_path(employee) %></td> -->
       </tr>
     <% end %>
   </tbody>

@@ -1,27 +1,27 @@
-<h1>SHOW</h1>
+<h1>USER SHOW</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>First name:</strong>
-  <%= @employee.first_name %>
+
 </p>
 
 <p>
   <strong>Last name:</strong>
-  <%= @employee.last_name %>
+
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @employee.email %>
+  <%= @user.email %>
 </p>
 
 <p>
   <strong>Manager:</strong>
-  <%= @employee.user %>
+  <%= @user.employees %>
 </p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Edit', edit_user_path %> |
 <%= link_to 'Back', user_employees_path(current_user) %> |
 
 <%= link_to 'Destroy', @employee, method: :delete, data: { confirm: 'Are you sure?' } %>
