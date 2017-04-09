@@ -5,9 +5,14 @@ class EmployeeMailer < ApplicationMailer
   def welcome_email(employee)
     @employee = employee
     @url  = 'http://example.com/login'
-    delivery_options = { employee_name: "Not Google",
-       password: company.smtp_password,
-       address: company.smtp_host }
+
+    delivery_options = {
+      address: "smtp.gmail.com",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+    }
     mail(
       to: @employee.email,
       subject: 'Welcome to My Awesome Company',
@@ -15,8 +20,3 @@ class EmployeeMailer < ApplicationMailer
     )
   end
 end
-
-
-    mail(to: @employee.email,
-         subject: "Please see the Terms and Conditions attached",
-         delivery_method_options: delivery_options)
