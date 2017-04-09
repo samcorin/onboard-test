@@ -18,9 +18,9 @@
 $(document).ready(function() {
   $('a.ui.item').on('click', function(e) {
     // e.preventDefault();
-    console.log(e.target);
-
-    // $(e).addClass('active')
+    // console.log(e.target);
+    $('a.ui.item').removeClass('active');
+    $(this).addClass('active');
     //   .find('.item')
     //   .not($(this))
     //   .removeClass('active');

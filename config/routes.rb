@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'managers#index'
+  root 'users#index'
 
   resources :managers do
     resources :employees
@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :employees
 
   devise_for :users
+
+  resources :users do
+    resources :employees
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

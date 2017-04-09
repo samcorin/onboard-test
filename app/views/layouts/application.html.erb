@@ -9,14 +9,17 @@
   </head>
 
   <body>
+  <%= current_user.email %> <br>
+  id: <%= current_user.id %> <br>
 
 
     <div class="ui container">
 
       <% if user_signed_in? %>
         <div class="ui secondary menu">
-            <%= link_to 'Home', managers_path, :class => 'ui item  active' %>
-            <%= link_to 'New Employee', new_employee_path, :class => 'ui item' %>
+            <%= link_to 'Home', users_path, :class => 'ui item  active' %>
+            <%= link_to 'New Employee', new_user_employee_path(current_user), :class => 'ui item' %>
+            <%= link_to 'Employees', user_employees_path(current_user), :class => 'ui item' %>
           <div class="right menu">
             <div class="item">
             <%= current_user.email %>
