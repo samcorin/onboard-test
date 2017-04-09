@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 <h1>Employees</h1>
+<div class="ui breadcrumb">
+  <%= link_to "Home", users_path, class: "section"%>
+  <i class="right angle icon divider"></i>
+  <div class="active section">Employees</div>
+</div>
 
 <table class="ui single line table">
   <thead>
@@ -19,9 +24,7 @@
             <% end %>
           </td>
           <td><%= employee.email %></td>
-        <td class="center aligned">
-          <i class="large green checkmark icon"></i>
-        </td>
+        <td><i class="large green checkmark icon"></i></td>
         <!-- <td><%= employee.user %></td> -->
         <!-- <td><%= link_to 'Show', employee_path(employee) %></td> -->
         <!-- <td><%= link_to 'Edit', edit_employee_path(employee) %></td> -->
