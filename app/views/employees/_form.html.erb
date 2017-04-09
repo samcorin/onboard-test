@@ -2,12 +2,15 @@
   <%= f.error_notification %>
 
   <div class="ui form">
-    <%= f.input :first_name, class: "field" %>
-    <%= f.input :last_name, class: "field" %>
-    <%= f.input :email, class: "field" %>
+    <!-- <div class="inline fields"> -->
+      <!-- <div class="three fields"> -->
+        <%= f.input :first_name, required: true, autofocus: true, class: "field", placeholder: "First Name" %>
+        <%= f.input :last_name, required: true, class: "field", placeholder: "Last Name" %>
+      <!-- </div> -->
+    <!-- </div> -->
+    <%= f.input :email, required: true, class: "field", placeholder: "bob@yahoo.com"%>
     <p><strong>Manager: </strong><%= current_user.email %></p>
     <%= f.hidden_field :user_id, value:current_user.id %>
-
   </div>
 
   <div class="form-actions">
