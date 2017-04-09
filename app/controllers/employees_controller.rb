@@ -33,7 +33,7 @@ class EmployeesController < ApplicationController
 
     if @employee.save
       # Tell the UserMailer to send a welcome email after save
-        EmployeeMailer.welcome_email(@employee).deliver_later
+      EmployeeMailer.welcome_email(@employee).deliver_now
       redirect_to user_employees_path
     else
       render :new
