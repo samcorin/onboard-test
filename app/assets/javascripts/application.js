@@ -14,3 +14,32 @@
 //= require jquery_ujs
 //= require semantic
 // = require_tree .
+
+$(document).ready(function() {
+  $('a.ui.item').on('click', function(e) {
+    // e.preventDefault();
+    console.log(e.target);
+
+    // $(e).addClass('active')
+    //   .find('.item')
+    //   .not($(this))
+    //   .removeClass('active');
+  });
+
+  // $menuItem = $('.menu ui item'),
+
+  // handler = {
+  //   activate: function() {
+  //     $(this)
+  //     .addClass('active')
+  //     .find('.item')
+  //     .not($(this))
+  //     .removeClass('active');
+  //   }
+  // }
+  // ;
+
+  // $menuItem
+  //   .on('click', handler.activate)
+  // ;
+})

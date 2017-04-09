@@ -15,26 +15,21 @@
 
       <% if user_signed_in? %>
         <div class="ui secondary menu">
-
             <%= link_to 'Home', managers_path, :class => 'ui item  active' %>
-
-          <a class="ui item">
-            <%= link_to 'Employees', new_manager_path, :class => 'ui item' %>
-          </a>
-          <a class="item">
-            Friends
-          </a>
+            <%= link_to 'New Employee', new_employee_path, :class => 'ui item' %>
           <div class="right menu">
             <div class="item">
             <%= current_user.email %>
             </div>
-
+            <!--
             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'ui item' %>
+
+             -->
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'ui item'  %>
           </div>
         </div>
         <% else %>
-          <div class="ui secondary  menu">
+          <div class="ui secondary menu">
             <div class="right menu">
               <div class="ui item">
 
