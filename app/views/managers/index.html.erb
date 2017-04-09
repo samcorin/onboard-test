@@ -8,40 +8,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="6">First name</th>
-      <th>Last name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @managers.each do |manager| %>
+    <% @employees.each do |employee| %>
       <tr>
-        <td><%= manager.first_name %></td>
-        <td><%= manager.last_name %></td>
-        <td><%= link_to 'Show', manager %></td>
-        <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
-        <td><%= link_to 'Destroy', manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 

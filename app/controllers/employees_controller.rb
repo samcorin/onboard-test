@@ -1,11 +1,13 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:edit, :update, :destroy, :new, :create ]
+  before_action :set_user, only: [:edit, :update, :new, :create, :index]
 
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    # @employees = Employee.all
+    @employees = @user.employees
+
   end
 
   # GET /employees/1
@@ -51,10 +53,12 @@ class EmployeesController < ApplicationController
   end
 
   def destroy
+    # @user = User.find(params[:user_id])
+    # @employee = User.find(params[:id])
     @user = @employee.user
 
     @employee.destroy
-    redirect_to user_employees_path
+    redirect_to user_employees_path(@user)
   end
 
   private
@@ -64,10 +68,7 @@ class EmployeesController < ApplicationController
     end
 
     def set_user
-      # Doesn't work with employee_path show
       @user = User.find(params[:user_id])
-
-      # @user = User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

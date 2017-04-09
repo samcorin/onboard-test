@@ -1,16 +1,16 @@
 <%= simple_form_for [@user, @employee] do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :email %>
+  <div class="ui form">
+    <%= f.input :first_name, class: "field" %>
+    <%= f.input :last_name, class: "field" %>
+    <%= f.input :email, class: "field" %>
     <p><strong>Manager: </strong><%= current_user.email %></p>
     <%= f.hidden_field :user_id, value:current_user.id %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "ui button" %>
   </div>
 <% end %>
